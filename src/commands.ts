@@ -10,3 +10,12 @@ export async function list(store: Store<RecipeType[]>, args: string[]) {
   console.log('Your recipes:');
   console.log(formatted);
 }
+
+export async function details(store: Store<RecipeType[]>, args: number[]) {
+  const recipes = store.getValue();
+  const recipeDetails = (await recipes).filter((r) => {
+    r.id === args[0];
+  })
+  console.log(recipeDetails)
+
+}
